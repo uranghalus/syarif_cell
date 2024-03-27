@@ -22,7 +22,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Create Merek</h3>
+                            <h3 class="card-title">Create Spesifikasi</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nama_merek">Nilai Spesifikasi</label>
-                                    <input type="text" class="form-control" id="nilai_spesifikasi" name="nilai_spesifikasi" placeholder="Masukkan nama merek">
+                                    <input type="text" class="form-control" id="nilai_spesifikasi" name="nilai_spesifikasi" placeholder="Masukkan nilai spesifikasi">
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-8">
@@ -108,7 +108,7 @@
                 // Redirect or other actions as needed
                 setTimeout(function() {
                     // Redirect to a new page after successful form submission
-                    window.location.href = '<?= base_url('/admin/data-spesifikasi/'). $perangkat_id ?>';
+                    window.location.href = '<?= base_url('/admin/data-spesifikasi/') . $perangkat_id ?>';
                 }, 2000); // 2000 milliseconds = 2 seconds
             },
             error: function(xhr, status, error) {

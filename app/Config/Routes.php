@@ -27,13 +27,13 @@ $routes->group('admin', function ($routes) {
         $routes->post('update', 'Admin\MerekController::update');
     });
     $routes->group('data-perangkat', function ($routes) {
-        $routes->get('/', 'PerangkatController::index');
-        $routes->get('create', 'PerangkatController::create');
-        $routes->get('edit/(:num)', 'PerangkatController::edit/$1');
-        $routes->get('detail/(:num)', 'PerangkatController::detail/$1');
-        $routes->get('delete/(:num)', 'PerangkatController::delete/$1');
-        $routes->post('store', 'PerangkatController::store');
-        $routes->post('update', 'PerangkatController::update');
+        $routes->get('/', 'Admin\PerangkatController::index');
+        $routes->get('create', 'Admin\PerangkatController::create');
+        $routes->get('edit/(:num)', 'Admin\PerangkatController::edit/$1');
+        $routes->get('detail/(:num)', 'Admin\PerangkatController::detail/$1');
+        $routes->get('delete/(:num)', 'Admin\PerangkatController::delete/$1');
+        $routes->post('store', 'Admin\PerangkatController::store');
+        $routes->post('update', 'Admin\PerangkatController::update');
     });
     //LINK Data Spesifikasi
     $routes->group('data-spesifikasi', function ($routes) {

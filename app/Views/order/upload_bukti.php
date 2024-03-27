@@ -42,7 +42,7 @@
                     <form id="upload-bukti" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?= $data_pembelian['id'] ?>">
                         <div class="form-group">
-                            <label for="exampleInputFile">Upload Foto Merek Baru</label>
+                            <label for="exampleInputFile">Upload Foto Bukti Pembayaran</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="bukti_pembayaran" id="exampleInputFile1">
