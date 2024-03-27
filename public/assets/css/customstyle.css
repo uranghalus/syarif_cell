@@ -1,0 +1,8 @@
+@media (max-width: 500px) {
+    .position-absolute {
+        position: static;
+        transform: none;
+        text-align: center;
+    }
+    
+}
