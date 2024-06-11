@@ -57,6 +57,11 @@ $routes->group('admin', function ($routes) {
         $routes->post('cetak-laporan-smartphone', 'Admin\ReportController::print_smartphone');
         $routes->post('cetak-laporan-pembelian', 'Admin\ReportController::print_checkout');
     });
+    // LINK PRofile
+    $routes->group('profile', function ($routes) {
+        $routes->get('/', 'ProfileController::index');
+        $routes->post('update', 'ProfileController::update');
+    });
 });
 $routes->group('client', function ($routes) {
     $routes->get('data-perangkat/(:num)', 'Client\PerangkatController::detail/$1');
@@ -76,5 +81,11 @@ $routes->group('client', function ($routes) {
         $routes->get('upload-bukti/(:any)', 'Client\OrderController::uploadbukti/$1');
         $routes->get('konfirmasi/(:any)', 'Client\OrderController::konfirmasi/$1');
     });
+    $routes->group('profile', function ($routes) {
+        $routes->get('/', 'ProfileController::index');
+        $routes->post('update', 'ProfileController::update');
+    });
 });
 $routes->get('/', 'Home::index');
+$routes->get('/galery-smartphone', 'GaleryController::index');
+$routes->get('/notifications', 'NotificationController::index');

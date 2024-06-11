@@ -60,6 +60,52 @@
 <?= $this->renderSection('script') ?>
 <script>
   $(document).ready(function() {
+    function loadNotifications() {
+      $.get('<?= base_url('/notifications') ?>', function(data) {
+        let notificationCount = data.length;
+        $('#notificationCount').text(notificationCount);
+        $('#notificationHeader').text(notificationCount + ' Notifications');
+
+        let notificationsHtml = '';
+        data.forEach(function(notification) {
+          let icon;
+          let statusText;
+          switch (notification.status_pembayaran) {
+            case 'Menunggu Verifikasi Admin':
+              icon = 'fas fa-clock';
+              statusText = 'Pesanan Menunggu Verifikasi Admin';
+              break;
+            case 'Belum Dibayar':
+              icon = 'fas fa-exclamation-circle';
+              statusText = 'Pesanan Belum Dibayar';
+              break;
+            case 'Barang Diterima':
+              icon = 'fas fa-check-circle';
+              statusText = 'Pesanan Barang Diterima';
+              break;
+          }
+          notificationsHtml += `
+                        <a href="#" class="dropdown-item">
+                            <i class="${icon} mr-2"></i> ${statusText}
+                            <span class="float-right text-muted text-sm">${notification.tanggal_pembelian}</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                    `;
+        });
+        $('#notificationList').html(notificationsHtml);
+      });
+    }
+
+    // Load notifications when the dropdown is clicked
+    $('#notificationDropdown').on('click', function() {
+      loadNotifications();
+    });
+
+    // Optionally, you can auto-refresh notifications every few seconds
+    setInterval(loadNotifications, 60000); // 1 minute
+
+    loadNotifications(); // Initial load
+
     //Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'

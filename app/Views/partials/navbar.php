@@ -18,7 +18,7 @@
                       <a href="<?= base_url(); ?>" class="nav-link">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a href="<?= base_url(); ?>" class="nav-link">Galeri Smartphone</a>
+                      <a href="<?= base_url('galery-smartphone'); ?>" class="nav-link">Galeri Smartphone</a>
                   </li>
                   <?php if ($isLoggedIn) : ?>
                       <li class="nav-item">
@@ -110,7 +110,7 @@
                       <ul aria-labelledby="dropdownUser" class="dropdown-menu border-0 shadow">
                           <li><a href="" class="dropdown-item">User : <strong><?= session()->get('name') ?></strong></a></li>
                           <li class="dropdown-divider"></li>
-                          <li><a href="<?= base_url(route_to('get-profileindex')); ?>" class="dropdown-item">Profile</a></li>
+                          <li><a href="<?= base_url('client/profile'); ?>" class="dropdown-item">Profile</a></li>
                           <li><a href="<?= base_url('auth/logout'); ?>" class="dropdown-item">Logout</a></li>
                       </ul>
                   </li>

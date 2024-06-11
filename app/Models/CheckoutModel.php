@@ -78,6 +78,15 @@ class CheckoutModel extends Model
         }
         return $builder->get()->getRowArray();
     }
+    public function getOrdersByStatus($statuses)
+    {
+        $builder = $this->db->table('checkout')
+            ->select('checkout.id as checkout_id , checkout.created_at AS tanggal_pembelian, checkout.status_pembayaran')
+            ->whereIn('checkout.status_pembayaran', $statuses);
+        $result = $builder->get()->getResultArray();
+        return $result;
+    }
+
     public function getPerangkatByCheckoutId($checkoutId)
     {
         return $this->db->table('checkout_detail')
