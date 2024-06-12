@@ -75,8 +75,7 @@ class ProfileController extends BaseController
             $verifyPassword = password_verify($old_password, $password);
             if ($verifyPassword) {
                 if ($new_password != null) {
-                    $new_password2 = password_hash($new_password, PASSWORD_DEFAULT);
-                    $data['password'] = $new_password2;
+                    $data['password'] = $new_password;
                 }
             } else {
                 $response = [

@@ -62,7 +62,7 @@
                                                     <a href="<?= base_url('/admin/data-perangkat/edit/' . $perangkat['perangkat_id']) ?>" class="btn btn-warning" title="Edit Data">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button type="button" id="delete-perangkat" data-id="<?= $perangkat['perangkat_id'] ?>" class="btn btn-danger">
+                                                    <button type="button" data-id="<?= $perangkat['perangkat_id'] ?>" class="btn btn-danger delete-perangkat">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </div>
@@ -90,7 +90,7 @@
 <?= $this->section('script') ?>
 <script>
     $(document).ready(function() {
-        $('#delete-perangkat').on('click', function() {
+        $('.delete-perangkat').on('click', function() {
             var id = $(this).data('id');
             Swal.fire({
                 title: 'Apakah Anda yakin?',

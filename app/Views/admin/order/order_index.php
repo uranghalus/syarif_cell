@@ -85,7 +85,7 @@
 <script>
     $(document).ready(function() {
         $('.verifikasi-pembelian').on('click', function() {
-            var id = $(this).data('checkout_id');
+            var id = $(this).data('id'); // Ubah menjadi 'id' dari 'checkout_id'
             var jenis = $(this).data('jenis');
             Swal.fire({
                 title: 'Apakah Anda yakin?',
@@ -94,22 +94,22 @@
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
                 cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Ya, Verifikasi Data data!'
+                confirmButtonText: 'Ya, Verifikasi Data!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '<?= base_url('/admin/order-data/verif/') ?>' + id + '?jenis=' + jenis,
+                        url: '<?= base_url("/admin/order-data/verif/") ?>' + id + '?jenis=' + jenis,
                         method: 'GET',
                         success: function(response) {
                             var data = response;
                             (data.res == "success") ?
-                            Toast.fire({
+                            Swal.fire({
                                     icon: 'success',
                                     title: data.message
                                 }).then(() => {
                                     location.reload();
                                 }):
-                                Toast.fire({
+                                Swal.fire({
                                     icon: 'error',
                                     title: data.message
                                 }).then(() => {

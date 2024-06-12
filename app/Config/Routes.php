@@ -11,8 +11,10 @@ $routes->group('auth', function ($routes) {
     $routes->post('login', 'AuthController::login');
     $routes->get('register', 'AuthController::register');
     $routes->post('storeregister', 'AuthController::storeRegistration');
-    $routes->get('forgot-password', 'AuthController::forgotpassword');
-    $routes->post('forgot-password', 'AuthController::forgotpasswordact');
+    $routes->get('forgot-password', 'ForgotPasswordController::index');
+    $routes->post('forgot-password', 'ForgotPasswordController::index');
+    $routes->get('recovery-password', 'ForgotPasswordController::recovery_password');
+    $routes->post('recovery-password', 'ForgotPasswordController::recovery_password');
     $routes->get('logout', 'AuthController::logout'); // Tambahkan rute untuk logout
     // Tambahkan rute lainnya jika diperlukan
 });
@@ -48,7 +50,7 @@ $routes->group('admin', function ($routes) {
     $routes->group('order-data', function ($routes) {
         $routes->get('/', 'Admin\OrderController::index');
         $routes->get('detail/(:any)', 'Admin\OrderController::detail/$1');
-        $routes->get('verif/(:any)', 'Admin\OrderController::verif/$1');
+        $routes->get('verif/(:segment)', 'Admin\OrderController::verif/$1');
     });
     // LINK Report
     $routes->group('report', function ($routes) {

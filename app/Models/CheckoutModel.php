@@ -59,7 +59,7 @@ class CheckoutModel extends Model
             ->join('perangkat', 'checkout_detail.perangkat_id = perangkat.perangkat_id')
             ->join('merek', 'perangkat.id_merek = merek.id_merek');
         if ($where !== null) {
-            $builder->where($where);
+            $builder->where('checkout.user_id', $where);
         }
         return $builder->get()->getResultArray();
     }

@@ -16,8 +16,8 @@ class CreateCheckoutDetailTable extends Migration
                 'auto_increment' => true,
             ],
             'checkout_id' => [
-                'type' => 'INT',
-                'constraint' => 5,
+                'type' => 'VARCHAR',
+                'constraint' => 10,
             ],
             'perangkat_id' => [
                 'type' => 'INT',

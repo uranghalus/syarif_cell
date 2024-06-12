@@ -25,7 +25,7 @@
                             <input type="text" class="form-control" id="email" name="email" value="<?= $user_data['email'] ?>">
                         </div>
                         <div class="form-group">
-                            <label for="username">Email</label>
+                            <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" value="<?= $user_data['username'] ?>">
                         </div>
                         <div class="form-group">

@@ -31,6 +31,10 @@ class CreateUsersTable extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'jenis_kelamin'      => [
+                'type'       => 'VARCHAR',
+                'constraint' => '50',
+            ],
             'nomor_telpon'      => [
                 'type'       => 'VARCHAR',
                 'constraint' => '15',

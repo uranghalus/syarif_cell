@@ -191,4 +191,41 @@ class PerangkatController extends BaseController
         ];
         return view('admin/master-data/perangkat/perangkat_detail', $data);
     }
+    // LINK Delete Data 
+    public function delete($id)
+    {
+        if (!$this->authenticate->isLoggedIn()) {
+            return redirect()->to(base_url('auth/login'));
+        }
+        $checkId = $this->PerangkatModel->find($id);
+        if (!$checkId) {
+            $response = [
+                'res' => 'error',
+                'message' => 'Data Tidak Ditemukan'
+            ];
+        } else {
+            $fotoPath = ROOTPATH . 'public/uploads/' . $checkId['gambar'];
+            if ($fotoPath) {
+                unlink($fotoPath);
+                $deleted = $this->PerangkatModel->delete($id);
+                if ($deleted) {
+                    $response = [
+                        'res' => 'success',
+                        'message' => 'Data Berhasil Dihapus'
+                    ];
+                } else {
+                    $response = [
+                        'res' => 'error',
+                        'message' => 'Gagal hapus data'
+                    ];
+                }
+            } else {
+                $response = [
+                    'res' => 'error',
+                    'message' => 'Foto Tidak Ditemukan'
+                ];
+            }
+        }
+        return $this->response->setJSON($response);
+    }
 }
