@@ -12,7 +12,6 @@ class CreateCheckoutTable extends Migration
             'id' => [
                 'type' => 'VARCHAR',
                 'constraint' => 10,
-                'unsigned' => true,
             ],
             'user_id' => [
                 'type' => 'INT',

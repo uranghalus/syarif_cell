@@ -15,7 +15,7 @@
         <img src="https://gravatar.com/avatar/avatar4.png" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block"><?= session()->email ?></a>
+        <a href="<?= base_url('/admin/profile') ?>" class="d-block"><?= session()->email ?></a>
       </div>
     </div>
 
