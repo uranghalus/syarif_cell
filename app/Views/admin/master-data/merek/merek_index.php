@@ -53,7 +53,7 @@
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('/admin/data-merek/edit/' . $merek['id_merek']) ?>" class="btn btn-warning">Edit</a>
-                                                <button class="btn btn-danger" id="delete-merek" data-id="<?= $merek['id_merek'] ?>">Hapus</button>
+                                                <button class="btn btn-danger delete-merek" data-id="<?= $merek['id_merek'] ?>">Hapus</button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -78,7 +78,7 @@
 <?= $this->section('script') ?>
 <script>
     $(document).ready(function() {
-        $('#delete-merek').on('click', function() {
+        $(document).on('click', '.delete-merek', function() {
             var id = $(this).data('id');
             Swal.fire({
                 title: 'Apakah Anda yakin?',
@@ -95,19 +95,21 @@
                         method: 'GET',
                         success: function(response) {
                             var data = response;
-                            (data.res == "success") ?
-                            Toast.fire({
+                            if (data.res == "success") {
+                                Toast.fire({
                                     icon: 'success',
                                     title: data.message
                                 }).then(() => {
                                     location.reload();
-                                }):
+                                });
+                            } else {
                                 Toast.fire({
                                     icon: 'error',
                                     title: data.message
                                 }).then(() => {
                                     location.reload();
                                 });
+                            }
                         }
                     });
                 }

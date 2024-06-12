@@ -87,3 +87,5 @@ $routes->group('client', function ($routes) {
     });
 });
 $routes->get('/', 'Home::index');
+$routes->get('/galery-smartphone', 'GaleryController::index');
+$routes->get('/notifications', 'NotificationController::index');

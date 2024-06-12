@@ -18,7 +18,7 @@
                       <a href="<?= base_url(); ?>" class="nav-link">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a href="<?= base_url(); ?>" class="nav-link">Galeri Smartphone</a>
+                      <a href="<?= base_url('galery-smartphone'); ?>" class="nav-link">Galeri Smartphone</a>
                   </li>
                   <?php if ($isLoggedIn) : ?>
                       <li class="nav-item">

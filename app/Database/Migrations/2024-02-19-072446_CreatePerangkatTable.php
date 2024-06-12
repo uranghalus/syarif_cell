@@ -50,7 +50,7 @@ class CreatePerangkatTable extends Migration
             ],
         ]);
         $this->forge->addKey('perangkat_id', true);
-        $this->forge->addForeignKey('id_merek', 'merek', 'id_merek');
+        $this->forge->addForeignKey('id_merek', 'merek', 'id_merek', 'CASCADE', 'CASCADE');
         $this->forge->createTable('perangkat');
     }
 
